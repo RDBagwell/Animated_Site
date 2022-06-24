@@ -1,0 +1,117 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border-bottom: 1px solid black;
+    padding: 100px 0 0 0;
+}
+
+.section.section01{
+    background-color: rgb(255, 123, 0);
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section.section02{
+    background-color: black;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section.section03{
+    background-color: white;
+    color: black;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/** Animations **/
+
+/** Fade In And Out **/
+.fade-content{
+    opacity: 0;
+    transition: opacity 2s linear;
+}
+.fade-content.fadeIn{
+    opacity: 1;
+}
+
+/** Fade In From Left **/
+.fade-content-from-left{
+    position: absolute;
+    left: 30px;
+    opacity: 0;
+    transition: opacity 0.5s linear, left 1s ease;
+}
+.fade-content-from-left.fadeIn{
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/** Fade In From Right **/
+.fade-content-from-right{
+    position: absolute;
+    right: 30px;
+    opacity: 0;
+    transition: opacity 0.5s linear, right 1s ease;
+}
+.fade-content-from-right.fadeIn{
+    opacity: 1;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+/** Fade In From Top **/
+.fade-content-from-top{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.25s linear, top 0.5s ease;
+}
+.fade-content-from-top.fadeIn{
+    opacity: 1;
+    top: 100px;
+}
+
+/** Fade In From Bottom **/
+.fade-content-from-bottom{
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.25s linear, bottom 0.5s ease;
+}
+.fade-content-from-bottom.fadeIn{
+    opacity: 1;
+    bottom: 100px;
+}
+
+/** Flip Y Axis **/
+.flip-y{
+    transform: rotateY(90deg);
+    transition: transform 1.0s linear;
+}
+.flip-y.fadeIn{
+    transform: rotateY(0deg);
+}
+
+/** Flip X Axis **/
+.flip-x{
+    transform: rotateX(90deg);
+    transition:transform 1.0s linear;
+}
+.flip-x.fadeIn{
+    transform: rotateY(0deg);
+}
