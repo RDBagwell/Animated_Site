@@ -6,129 +6,61 @@ const fadeContentFromBottom = document.querySelectorAll('.fade-content-from-bott
 const flipContenY = document.querySelectorAll('.flip-y');
 const flipContenX = document.querySelectorAll('.flip-x');
 
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.intersectionRatio > 0) {
+      entry.target.classList.add('fadeIn');
+    }
+    else {
+      entry.target.classList.remove('fadeIn');
+    }
+  });
+});
+
+function addDelay(element) {
+  if(element.dataset.delay){
+    element.style.transitionDelay = `${element.dataset.delay}s`
+  }
+}
 
 // Fade In And Out
-const fade = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-});
-fadeContent.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    fade.observe(content)
+fadeContent.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
 
 // Fade In From Left
-const fadeFromLeft = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-});
-fadeContentFromLeft.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    fadeFromLeft.observe(content)
+fadeContentFromLeft.forEach(element=>{
+  addDelay(element);
+  io.observe(element)
 });
 
 // Fade In From Right
-const fadeFromRight = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-});
-fadeContentFromRight.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    fadeFromRight.observe(content)
+fadeContentFromRight.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
 
-// Fade In From Top
-const fadeFromTop = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-})
-fadeContentFromTop.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    fadeFromTop.observe(content)
+// Fade In From element
+fadeContentFromTop.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
 
 // Fade In From Bottom
-const fadeFromBottom = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-})
-fadeContentFromBottom.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    fadeFromBottom.observe(content)
+fadeContentFromBottom.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
 
 // Flip Y
-const flipY = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-})
-flipContenY.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    flipY.observe(content)
+flipContenY.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
 
 // Flip X
-const flipX = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('fadeIn');
-      }
-      else {
-        entry.target.classList.remove('fadeIn');
-      }
-    });
-})
-flipContenX.forEach(content=>{
-    if(content.dataset.delay){
-        content.style.transitionDelay = `${content.dataset.delay}s`
-    }
-    flipX.observe(content)
+flipContenX.forEach(element=>{
+  addDelay(element);
+  io.observe(element);
 });
