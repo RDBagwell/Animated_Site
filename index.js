@@ -23,6 +23,22 @@ function addDelay(element) {
   }
 }
 
+
+function registerVideo(bound, video) {
+	bound = document.querySelector(bound);
+	video = document.querySelector(video);
+	const scrollVideo = ()=>{
+		if(video.duration) {
+			const distanceFromTop = scrollY + bound.getBoundingClientRect().top;
+			const rawPercentScrolled = (scrollY - distanceFromTop) / (bound.scrollHeight - innerHeight);
+			const percentScrolled = Math.min(Math.max(rawPercentScrolled, 0), 1);
+			video.currentTime = video.duration * percentScrolled;
+		}
+		requestAnimationFrame(scrollVideo);
+	}
+	requestAnimationFrame(scrollVideo);
+}
+
 // Fade In And Out
 fadeContent.forEach(element=>{
   addDelay(element);
@@ -64,3 +80,5 @@ flipContenX.forEach(element=>{
   addDelay(element);
   io.observe(element);
 });
+
+registerVideo("#bound", "#bound video");
